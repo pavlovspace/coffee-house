@@ -1,0 +1,29 @@
+//  Base
+
+@import 'base/vars';
+@import 'base/normalize';
+@import 'base/fonts';
+@import 'base/mixins';
+@import 'base/global';
+@import 'base/typography';
+
+//  Component
+
+@import 'components/header';
+@import 'components/footer';
+@import 'components/burger';
+@import 'components/slider';
+@import 'components/modal';
+
+// buttons
+
+@import 'components/buttons/button';
+@import 'components/buttons/menu-item';
+@import 'components/buttons/tab-item';
+@import 'components/buttons/button-primary';
+@import 'components/buttons/button-icon';
+
+//  Pages
+
+@import 'pages/home';
+@import 'pages/menu';
