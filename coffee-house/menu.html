@@ -19,22 +19,47 @@
 
     <body>
         <!-- HEADER -->
-        <header class="header">
-            <div class="header__container container">
+        <!-- BURGER MENU -->
+            <div class="burger-menu" id="burgerMenu">
+                <div class="burger-menu__header">
+                    <img src="assets/images/logo.png" alt="Coffee House logo" class="burger-menu__logo" />
+                    <button class="burger-menu__close" id="burgerClose" aria-label="Close menu"></button>
+                </div>
+
+                <nav class="burger-menu__nav">
+                    <ul>
+                        <li><a href="#enjoy">Favorite coffee</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#app">Mobile app</a></li>
+                        <li><a href="#contacts">Contact us</a></li>
+                        <li>
+                            <a href="menu.html" class="burger-menu__menu">
+                                Menu
+                                <img src="assets/icons/coffee-cup.svg" alt="coffee icon" />
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+        <!-- HEADER -->
+        <header class="header container">
+            <div class="header__container ">
                 <a href="index.html" class="header__logo">
                     <img src="assets/images/logo.png" alt="Coffee House logo" />
                 </a>
-
                 <nav class="nav header__nav">
                     <ul class="nav__list">
-                        <li><a href="index.html#enjoy" class="menu-item">Home</a></li>
-                        <li><a href="index.html#about" class="menu-item">About</a></li>
-                        <li><a href="index.html#app" class="menu-item">Mobile App</a></li>
-                        <li><a href="index.html#footer" class="menu-item">Contact Us</a></li>
+                        <li><a href="#enjoy" class="menu-item">Home</a></li>
+                        <li><a href="#about" class="menu-item">About</a></li>
+                        <li><a href="#app" class="menu-item">Mobile App</a></li>
+                        <li><a href="#footer" class="menu-item">Contact Us</a></li>
                     </ul>
                 </nav>
 
-                <a href="menu.html" class="menu-item menu-item--active">Menu</a>
+                <a href="menu.html" class="menu-item">Menu</a>
+
+                <button class="button-icon-burger" id="burgerIcon"></button>
             </div>
         </header>
 
@@ -72,7 +97,6 @@
                 </div>
 
                 <div class="menu__items" id="menuItems"></div>
-                <button class="button-primary menu__load-more" id="loadMoreBtn">Load More</button>
             </section>
         </main>
 
