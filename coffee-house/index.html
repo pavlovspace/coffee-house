@@ -18,33 +18,32 @@
     </head>
 
     <body>
-
         <!-- BURGER MENU -->
-            <div class="burger-menu" id="burgerMenu">
-                <div class="burger-menu__header">
-                    <img src="assets/images/logo.png" alt="Coffee House logo" class="burger-menu__logo" />
-                    <button class="burger-menu__close" id="burgerClose" aria-label="Close menu"></button>
-                </div>
-
-                <nav class="burger-menu__nav">
-                    <ul>
-                        <li><a href="#enjoy ">Favorite coffee</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#app">Mobile app</a></li>
-                        <li><a href="#contacts">Contact us</a></li>
-                        <li>
-                            <a href="menu.html" class="burger-menu__menu" >
-                                Menu
-                                <img src="assets/icons/coffee-cup.svg" alt="coffee icon" />
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+        <div class="burger-menu" id="burgerMenu">
+            <div class="burger-menu__header">
+                <img src="assets/images/logo.png" alt="Coffee House logo" class="burger-menu__logo" />
+                <button class="burger-menu__close" id="burgerClose" aria-label="Close menu"></button>
             </div>
+
+            <nav class="burger-menu__nav">
+                <ul>
+                    <li><a href="#enjoy ">Favorite coffee</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#app">Mobile app</a></li>
+                    <li><a href="#contacts">Contact us</a></li>
+                    <li>
+                        <a href="menu.html" class="burger-menu__menu">
+                            Menu
+                            <img src="assets/icons/coffee-cup.svg" alt="coffee icon" />
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
 
         <!-- HEADER -->
         <header class="header container">
-            <div class="header__container ">
+            <div class="header__container">
                 <a href="index.html" class="header__logo">
                     <img src="assets/images/logo.png" alt="Coffee House logo" />
                 </a>
@@ -65,19 +64,21 @@
 
         <main>
             <!-- ENJOY -->
-            <section id="enjoy" class="enjoy">
-                <div class="enjoy__container container">
-                    <div class="enjoy__content">
-                        <h1 class="enjoy__title"><span>Enjoy</span> premium coffee at our charming cafe</h1>
-                        <p class="enjoy__text">
-                            With its inviting atmosphere and delicious coffee options, the Coffee House Resource is a popular destination for coffee lovers and those seeking a warm
-                            and inviting space to enjoy their favorite brew.
-                        </p>
+            <section class="enjoy" id="enjoy">
+                <video autoplay muted loop playsinline class="enjoy__video">
+                    <source src="./assets/video/2909914-uhd_3840_2024_24fps.mp4" type="video/mp4" />
+                </video>
 
-                        <a href="menu.html" class="button-primary enjoy__button"> <span>Menu</span> </a>
-                    </div>
+                <div class="enjoy__content container">
+                    <h1 class="enjoy__title"><span>Enjoy</span> premium coffee at our charming cafe</h1>
+                    <p class="enjoy__text">
+                        With its inviting atmosphere and delicious coffee options, the Coffee House Resource is a popular destination for coffee lovers and those seeking a warm and
+                        inviting space to enjoy their favorite beverage.
+                    </p>
+                       <a href="menu.html" class="button-primary enjoy__button"> <span>Menu</span> </a>
                 </div>
             </section>
+            
 
             <!-- FAVORITES -->
             <section class="favorites">
