@@ -43,7 +43,8 @@
 
         <!-- HEADER -->
         <header class="header container">
-            <div class="header__container">
+         <div class="container">
+               <div class="header__container">
                 <a href="index.html" class="header__logo">
                     <img src="assets/images/logo.png" alt="Coffee House logo" />
                 </a>
@@ -60,6 +61,7 @@
 
                 <button class="button-icon-burger" id="burgerIcon"></button>
             </div>
+         </div>
         </header>
 
         <main>
@@ -75,49 +77,54 @@
                         With its inviting atmosphere and delicious coffee options, the Coffee House Resource is a popular destination for coffee lovers and those seeking a warm and
                         inviting space to enjoy their favorite beverage.
                     </p>
-                       <a href="menu.html" class="button-primary enjoy__button"> <span>Menu</span> </a>
+                    <a href="menu.html" class="button-primary enjoy__button"> <span>Menu</span> </a>
                 </div>
             </section>
-            
 
             <!-- FAVORITES -->
             <section class="favorites">
-                <div class="favorites__container">
-                    <h2 class="favorites__title">Choose your <span>favorite</span> coffee</h2>
+                <div class="container">
+                    <div class="favorites__container">
+                        <h2 class="favorites__title">Choose your <span>favorite</span> coffee</h2>
 
-                    <div class="favorites__slider">
-                        <button class="button-icon button-icon-dark prev" aria-label="Previous" style="transform: rotate(180deg)"></button>
+                        <div class="favorites__slider">
+                            <button class="button-icon button-icon-dark prev" aria-label="Previous">
+                                 <img src="assets/icons/arrow-left.svg" alt="arrow" />
+                            </button>
 
-                        <div class="slider__track">
-                            <div class="slider__item active">
-                                <img src="assets/images/coffee-slider-1.png" alt="S’mores Frappuccino" />
-                                <h3 class="slider__name">S’mores Frappuccino</h3>
-                                <p class="slider__desc">This new drink takes an espresso and mixes it with brown sugar and cinnamon before being topped with oat milk.</p>
-                                <span class="slider__price">$5.50</span>
+                            <div class="slider__track">
+                                <div class="slider__item active">
+                                    <img src="assets/images/coffee-slider-1.png" alt="S’mores Frappuccino" />
+                                    <h3 class="slider__name">S’mores Frappuccino</h3>
+                                    <p class="slider__desc">This new drink takes an espresso and mixes it with brown sugar and cinnamon before being topped with oat milk.</p>
+                                    <span class="slider__price">$5.50</span>
+                                </div>
+
+                                <div class="slider__item">
+                                    <img src="assets/images/coffee-slider-2.png" alt="Caramel Macchiato" />
+                                    <h3 class="slider__name">Caramel Macchiato</h3>
+                                    <p class="slider__desc">Rich espresso with vanilla syrup and caramel drizzle.</p>
+                                    <span class="slider__price">$4.90</span>
+                                </div>
+
+                                <div class="slider__item">
+                                    <img src="assets/images/coffee-slider-3.png" alt="Iced Latte" />
+                                    <h3 class="slider__name">Iced Latte</h3>
+                                    <p class="slider__desc">Espresso mixed with cold milk and ice for a smooth, refreshing flavor.</p>
+                                    <span class="slider__price">$4.20</span>
+                                </div>
                             </div>
 
-                            <div class="slider__item">
-                                <img src="assets/images/coffee-slider-2.png" alt="Caramel Macchiato" />
-                                <h3 class="slider__name">Caramel Macchiato</h3>
-                                <p class="slider__desc">Rich espresso with vanilla syrup and caramel drizzle.</p>
-                                <span class="slider__price">$4.90</span>
-                            </div>
-
-                            <div class="slider__item">
-                                <img src="assets/images/coffee-slider-3.png" alt="Iced Latte" />
-                                <h3 class="slider__name">Iced Latte</h3>
-                                <p class="slider__desc">Espresso mixed with cold milk and ice for a smooth, refreshing flavor.</p>
-                                <span class="slider__price">$4.20</span>
-                            </div>
+                            <button class="button-icon button-icon-dark next" aria-label="Next">
+                                <img src="assets/icons/arrow-right.svg" alt="arrow" />
+                            </button>
                         </div>
-
-                        <button class="button-icon button-icon-dark next" aria-label="Next"></button>
                     </div>
-                </div>
-                <div class="slider__indicators">
-                    <span class="slider__indicator active"></span>
-                    <span class="slider__indicator"></span>
-                    <span class="slider__indicator"></span>
+                    <div class="slider__indicators">
+                        <span class="slider__indicator active"></span>
+                        <span class="slider__indicator"></span>
+                        <span class="slider__indicator"></span>
+                    </div>
                 </div>
             </section>
 

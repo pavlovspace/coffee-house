@@ -1,121 +1,116 @@
 .button-icon-dark {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  border: 1px solid $color-text-dark;
-  background: url("../../../assets/icons/arrow-dark.svg") no-repeat center / 24px;
-   background-size: 24px 24px;
-  transition: background $transition-base, background-color $transition-base;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid $color-text-dark;
+    background-size: 24px 24px;
+    transition: background $transition-base, background-color $transition-base;
+    background-color: $color-text-light;
 
-  &:hover {
-    background-color: $color-text-dark;
-    background-image: url("../../../assets/icons/arrow-light.svg");
-     background-size: 24px 24px;
-  }
+    &:hover {
+        color: $color-text-light;
+        background-color: $color-text-dark;
+        background-size: 24px 24px;
+        img {
+            filter: brightness(0) invert(1);
+        }
+    }
 }
-
-
 
 /* ———————————————————————————— */
 /*  BURGER  (для header) */
 /* ———————————————————————————— */
 .button-icon-burger {
-  position: relative;
-  width: 44px;
-  height: 44px;
-  border: 1px solid $color-text-dark;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: border-color $transition-base, background-color $transition-base;
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border: 1px solid $color-text-dark;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: border-color $transition-base, background-color $transition-base;
 
-  /* полоски */
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    width: 20px;
-    height: 2px;
-    background-color: $color-text-dark;
-    border-radius: 1px;
-    transform: translateX(-50%);
-    transition: transform $transition-base, opacity $transition-base;
-  }
+    /* полоски */
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        width: 20px;
+        height: 2px;
+        background-color: $color-text-dark;
+        border-radius: 1px;
+        transform: translateX(-50%);
+        transition: transform $transition-base, opacity $transition-base;
+    }
 
-  &::before {
-    top: 17px;
-  }
+    &::before {
+        top: 17px;
+    }
 
-  &::after {
-    bottom: 17px;
-  }
+    &::after {
+        bottom: 17px;
+    }
 
+    /* активное состояние (крестик) */
+    &.active::before {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
 
-  /* активное состояние (крестик) */
-  &.active::before {
-    top: 50%;
-    transform: translate(-50%, -50%) rotate(45deg);
-  }
-
-  &.active::after {
-    bottom: 50%;
-    transform: translate(-50%, 50%) rotate(-45deg);
-  }
+    &.active::after {
+        bottom: 50%;
+        transform: translate(-50%, 50%) rotate(-45deg);
+    }
 }
-
-
-
-
 
 /* Общие стили для кнопок */
 .button-app-store,
 .button-google-play {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  width: 200px;
-  height: 64px;
-  border: 1px solid $color-text-dark;
-  border-radius: 100px;
-  background-color: transparent;
-  color: $color-text-dark;
-  font-family: 'Inter', sans-serif;
-  text-decoration: none;
-  transition: all $transition-base;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 200px;
+    height: 64px;
+    border: 1px solid $color-text-dark;
+    border-radius: 100px;
+    background-color: transparent;
+    color: $color-text-dark;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    transition: all $transition-base;
 
-  span {
-    display: block;
-    font-size: 10px;
-    font-weight: 400;
-    line-height: 140%;
-  }
-
-  strong {
-    display: block;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 150%;
-  }
-
-  &:hover {
-    background-color: $color-text-dark;
-    color: $color-text-light;
-
-    img {
-      filter: brightness(0) invert(1);
+    span {
+        display: block;
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 140%;
     }
-  }
+
+    strong {
+        display: block;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 150%;
+    }
+
+    &:hover {
+        background-color: $color-text-dark;
+        color: $color-text-light;
+        img {
+            filter: brightness(0) invert(1);
+        }
+    }
 }
 
 /* App Store */
 .button-app-store__icon {
-  width: 28px;
-  height: 28px;
+    width: 28px;
+    height: 28px;
 }
 
 /* Google Play */
 .button-google-play__icon {
-  width: 26px;
-  height: 26px;
+    width: 26px;
+    height: 26px;
 }
