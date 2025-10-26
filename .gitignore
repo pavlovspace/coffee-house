@@ -7,28 +7,7 @@ yarn-debug.log*
 yarn-error.log*
 package-lock.json
 
-# ============================
-# Build output
-# ============================
-dist/
-build/
-out/
-_site/
 
-# ============================
-# TypeScript
-# ============================
-*.tsbuildinfo
-
-# ============================
-# Local dev tools
-# ============================
-.env
-.env.local
-.DS_Store
-.vscode/
-.idea/
-*.iml
 
 # ============================
 # OS crap
