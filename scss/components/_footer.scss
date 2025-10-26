@@ -1,0 +1,178 @@
+.footer {
+    background-color: $color-text-dark;
+    border-radius: 40px;
+    color: $color-text-light;
+    padding: 100px 80px;
+    max-width: 1440px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    font-family: 'Inter', sans-serif;
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+
+    &__left {
+        flex: 1;
+    }
+
+    &__title {
+        font-size: 60px;
+        font-weight: 600;
+        line-height: 125%;
+        margin-bottom: 8px;
+    }
+
+    &__subtitle {
+        font-size: 60px;
+        font-weight: 600;
+        font-style: italic;
+        line-height: 125%;
+        color: $color-text-accent;
+        margin-bottom: 40px;
+        margin-top: 0;
+    }
+
+    &__right {
+        flex: 1;
+        max-width: 400px;
+    }
+
+    &__contact-title {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 24px;
+        padding-top: 40px;
+    }
+
+    &__contact-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 0;
+
+        li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 16px;
+            line-height: 150%;
+            color: $color-text-light;
+            opacity: 0.9;
+
+            img {
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+
+    .footer__socials {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        .button-icon-light {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 1px solid rgba($color-text-light, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $color-text-light;
+
+            transition: all $transition-base;
+            &:hover {
+                color: $color-text-dark;
+                background-color: $color-text-light;
+                background-size: 24px 24px;
+                img {
+                    filter: brightness(0) saturate(100%) invert(21%) sepia(5%) saturate(406%) hue-rotate(23deg) brightness(92%) contrast(92%);
+                }
+            }
+        }
+    }
+
+    @media (max-width: 544px) {
+        .footer {
+            padding: 40px 0;
+
+            &__container {
+                max-width: 348px;
+                margin: 0 auto;
+                padding: 0 16px;
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+            }
+
+            &__content {
+                width: 100%;
+                background-color: #403f3d;
+                border-radius: 40px;
+                padding: 60px 16px;
+                text-align: left;
+            }
+
+            &__title {
+                font-size: 28px;
+                line-height: 130%;
+                margin-bottom: 24px;
+
+                span {
+                    font-style: italic;
+                    color: #b0907a;
+                }
+            }
+
+            &__socials {
+                display: flex;
+                justify-content: flex-start;
+                gap: 16px;
+                margin-bottom: 32px;
+
+                a {
+                    width: 44px;
+                    height: 44px;
+                    border: 1px solid #c1b6ad;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    img {
+                        width: 22px;
+                        height: 22px;
+                    }
+                }
+            }
+
+            &__contacts {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+                font-size: 14px;
+                line-height: 150%;
+                color: #e1d4c9;
+            }
+
+            &__contact-item {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                img {
+                    width: 18px;
+                    height: 18px;
+                }
+            }
+        }
+    }
+}

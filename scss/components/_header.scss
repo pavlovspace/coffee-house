@@ -1,0 +1,80 @@
+.header {
+  background-color: $color-bg-body;
+  transition: background-color $transition-base;
+
+  &__container {
+    height: 60px;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    img {
+      width: 100%;
+      max-width: 100px;
+      height: auto;
+      display: block;
+    }
+  }
+
+  /* Навигация */
+  .nav {
+    &__list {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+
+
+
+  /* адаптив */
+  @media (max-width: 768px) {
+
+    &__container {
+      height: 80px;
+    }
+
+    /* скрываем пункт "Menu" */
+    .header__menu-link, .menu-item{
+      display: none;
+    }
+
+
+
+    /* навигация как слайд-панель */
+    .nav {
+      position: fixed;
+      top: 80px;
+      right: 0;
+      width: 100%;
+      height: calc(100vh - 80px);
+      background-color: $color-bg-body;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform: translateX(100%);
+      transition: transform $transition-base;
+      z-index: 10;
+
+      &.active {
+        transform: translateX(0);
+      }
+
+      &__list {
+        flex-direction: column;
+        gap: 24px;
+      }
+    }
+  }
+}

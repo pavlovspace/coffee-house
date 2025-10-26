@@ -1,0 +1,151 @@
+.cart {
+  text-align: center;
+  margin: 20px 0 100px;
+
+}
+
+.cart__container {
+  margin: 40px 0;
+}
+
+.cart__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cart__total {
+  margin: 40px 0 0 48px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.auth-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.cart__item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart__item__info {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.cart__item__price-container {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.cart__item__description {
+  text-align: start;
+}
+
+.cart__item__image {
+  width: 100px;
+  height: 100px;
+  background-position: center;
+  background-size: contain;
+  border-radius: 20px;
+}
+
+.line-through {
+  text-decoration: line-through;
+  opacity: 50%;
+}
+
+.cart__price-container {
+  display: flex;
+  gap: 20px;
+}
+
+
+.cart-counter {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background-color: #c47f39;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart__item__remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.cart__item__remove:hover {
+  transform: scale(1.1);
+}
+
+.cart__item__remove-icon {
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  filter: brightness(0) saturate(100%) invert(15%) sepia(5%) saturate(347%) hue-rotate(0deg)
+    brightness(90%) contrast(90%);
+}
+
+
+
+.notification {
+  position: fixed;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 500;
+  color: #fff;
+  opacity: 0;
+  transition: all 0.4s ease;
+  z-index: 9999;
+}
+
+.notification.visible {
+  top: 20px;
+  opacity: 1;
+}
+
+.notification.success {
+  background-color: #4caf50;
+}
+
+.notification.error {
+  background-color: #e53935;
+}
+
+.loader.small {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #fff;
+  border-top-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  animation: spin 0.8s linear infinite;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

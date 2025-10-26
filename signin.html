@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sign in | Coffee House</title>
+              <!-- Favicon -->
+        <link rel="icon" type="image/png" href="assets/images/logo.png" />
+        <link rel="stylesheet" href="css/style.min.css" />
+    </head>
+
+    <body>
+        <header class="header container">
+            <div class="header__container">
+                <a href="index.html" class="header__logo">
+                    <img src="assets/images/logo.png" alt="Coffee House logo" />
+                </a>
+                <nav class="nav header__nav">
+                    <ul class="nav__list">
+                        <li><a href="index.html#enjoy" class="menu-item">Home</a></li>
+                        <li><a href="index.html#about" class="menu-item">About</a></li>
+                        <li><a href="index.html#app" class="menu-item">Mobile App</a></li>
+                        <li><a href="index.html#footer" class="menu-item">Contact Us</a></li>
+                    </ul>
+                </nav>
+
+                <a href="cart.html" class="menu-item cart-link" aria-label="Cart" style="display: none">
+                    <img src="assets/icons/cart.svg" alt="Cart icon" class="cart-link__icon" />
+                    <span class="cart-link__counter"></span>
+                </a>
+
+                <a href="menu.html" class="menu-item">Menu</a>
+
+                <button class="button-icon-burger" id="burgerIcon"></button>
+            </div>
+        </header>
+
+        <main class="register container">
+            <h1 class="favorites__title">Sign In</h1>
+
+            <form id="loginForm" class="login__form form-group">
+                <label>
+                    Login
+                    <input id="login" type="text" placeholder="Placeholder" />
+                </label>
+
+                <label>
+                    Password
+                    <input id="password" type="password" placeholder="Placeholder" />
+                </label>
+
+                <button class="button-outline button-icon-dark button-icon-dark--cart" id="signInBtn" type="submit" disabled>Sign In</button>
+
+                <p id="loginError" class="login-error"></p>
+            </form>
+        </main>
+        <footer class="footer" id="footer">
+            <div class="footer__container container">
+                <div class="footer__left">
+                    <h2 class="footer__title">Sip, Savor, Smile.</h2>
+                    <p class="footer__subtitle">It’s coffee time!</p>
+
+                    <div class="footer__socials">
+                        <a href="#" class="button-icon-light" aria-label="Twitter">
+                            <img src="assets/icons/twitter.svg" alt="Twitter" />
+                        </a>
+                        <a href="#" class="button-icon-light" aria-label="Instagram">
+                            <img src="assets/icons/instagram.svg" alt="Instagram" />
+                        </a>
+                        <a href="#" class="button-icon-light" aria-label="Facebook">
+                            <img src="assets/icons/facebook.svg" alt="Facebook" />
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer__right">
+                    <h3 class="footer__contact-title">Contact us</h3>
+                    <ul class="footer__contact-list">
+                        <li>
+                            <img src="assets/icons/pin.svg" alt="" />
+                            8558 Green Rd., LA
+                        </li>
+                        <li>
+                            <img src="assets/icons/phone.svg" alt="" />
+                            +1 (603) 555-0123
+                        </li>
+                        <li>
+                            <img src="assets/icons/clock.svg" alt="" />
+                            Mon–Sat: 9:00 AM – 23:00 PM
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        <script type="module" src="js/signin.js"></script>
+    </body>
+</html>
