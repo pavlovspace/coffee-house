@@ -21,13 +21,6 @@ _site/
 *.tsbuildinfo
 
 # ============================
-# CSS / JS compiled files
-# ============================
-css/*.min.css
-js/*.min.js
-*.map
-
-# ============================
 # Local dev tools
 # ============================
 .env
