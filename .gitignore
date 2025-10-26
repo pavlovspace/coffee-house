@@ -9,16 +9,3 @@ package-lock.json
 
 
 
-# ============================
-# OS crap
-# ============================
-Thumbs.db
-ehthumbs.db
-Icon?
-Desktop.ini
-
-# ============================
-# GitHub Pages
-# ============================
-.nojekyll
-.DS_Store
