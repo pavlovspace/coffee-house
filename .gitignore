@@ -1,0 +1,52 @@
+# ============================
+# Node / npm
+# ============================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# ============================
+# Build output
+# ============================
+dist/
+build/
+out/
+_site/
+
+# ============================
+# TypeScript
+# ============================
+*.tsbuildinfo
+
+# ============================
+# CSS / JS compiled files
+# ============================
+css/*.min.css
+js/*.min.js
+*.map
+
+# ============================
+# Local dev tools
+# ============================
+.env
+.env.local
+.DS_Store
+.vscode/
+.idea/
+*.iml
+
+# ============================
+# OS crap
+# ============================
+Thumbs.db
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# ============================
+# GitHub Pages
+# ============================
+.nojekyll
+.DS_Store
