@@ -110,13 +110,16 @@
     .slider__track {
         display: flex;
         overflow: hidden;
-        width: 320px;
+        // max-width: 420px;
     }
 
     .slider__item {
         flex: 0 0 100%;
         text-align: center;
         transition: transform 0.5s ease;
+        img{
+            border-radius: 30px;
+        }
     }
 
     .slider__name {

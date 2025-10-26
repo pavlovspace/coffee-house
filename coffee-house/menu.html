@@ -20,31 +20,31 @@
     <body>
         <!-- HEADER -->
         <!-- BURGER MENU -->
-            <div class="burger-menu" id="burgerMenu">
-                <div class="burger-menu__header">
-                    <img src="assets/images/logo.png" alt="Coffee House logo" class="burger-menu__logo" />
-                    <button class="burger-menu__close" id="burgerClose" aria-label="Close menu"></button>
-                </div>
-
-                <nav class="burger-menu__nav">
-                    <ul>
-                        <li><a href="#enjoy">Favorite coffee</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#app">Mobile app</a></li>
-                        <li><a href="#contacts">Contact us</a></li>
-                        <li>
-                            <a href="menu.html" class="burger-menu__menu">
-                                Menu
-                                <img src="assets/icons/coffee-cup.svg" alt="coffee icon" />
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+        <div class="burger-menu" id="burgerMenu">
+            <div class="burger-menu__header">
+                <img src="assets/images/logo.png" alt="Coffee House logo" class="burger-menu__logo" />
+                <button class="burger-menu__close" id="burgerClose" aria-label="Close menu"></button>
             </div>
+
+            <nav class="burger-menu__nav">
+                <ul>
+                    <li><a href="#enjoy">Favorite coffee</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#app">Mobile app</a></li>
+                    <li><a href="#contacts">Contact us</a></li>
+                    <li>
+                        <a href="menu.html" class="burger-menu__menu">
+                            Menu
+                            <img src="assets/icons/coffee-cup.svg" alt="coffee icon" />
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
 
         <!-- HEADER -->
         <header class="header container">
-            <div class="header__container ">
+            <div class="header__container">
                 <a href="index.html" class="header__logo">
                     <img src="assets/images/logo.png" alt="Coffee House logo" />
                 </a>
@@ -56,6 +56,11 @@
                         <li><a href="#footer" class="menu-item">Contact Us</a></li>
                     </ul>
                 </nav>
+
+                <a href="cart.html" class="menu-item cart-link" aria-label="Cart" style="display: none">
+                    <img src="assets/icons/cart.svg" alt="Cart icon" class="cart-link__icon" />
+                    <span class="cart-link__counter"></span>
+                </a>
 
                 <a href="menu.html" class="menu-item">Menu</a>
 
@@ -140,12 +145,10 @@
             </div>
         </footer>
 
-
-          <!-- MODAL -->
+        <!-- MODAL -->
         <div class="modal" id="productModal">
             <div class="modal__overlay"></div>
             <div class="modal__content">
-
                 <img src="" alt="Product image" class="modal__image" />
                 <div class="modal__info">
                     <h3 class="modal__title"></h3>
@@ -183,7 +186,8 @@
 
         <!-- Scripts -->
         <script src="js/burger.js"></script>
-        <script src="js/menu.js"></script>
-        <script src="js/modal.js"></script>
+        <script type="module" src="js/menu.js"></script>
+
+        <script type="module" src="js/modal.js"></script>
     </body>
 </html>

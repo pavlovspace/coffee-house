@@ -135,3 +135,22 @@
     color: #403f3d;
   }
 }
+
+.tooltip {
+  position: absolute;
+  background: #222;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 6px;
+  pointer-events: none;
+  z-index: 9999;
+}
+.old-price {
+  text-decoration: line-through;
+  color: #ff7777;
+  margin-right: 4px;
+}
+.new-price {
+  color: #00e676;
+}
