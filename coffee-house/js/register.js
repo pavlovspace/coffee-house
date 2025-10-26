@@ -142,6 +142,5 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => note.remove(), 300);
         }, 3000);
     }
-    // Кнопка с нужными классами
     registerBtn.className = 'button-icon-dark button-icon-dark--cart';
 });
