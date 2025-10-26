@@ -31,9 +31,13 @@ jobs:
       - name: Build project (CSS, JS, TS)
         run: npm run build
 
+      - name: Clean unnecessary folders
+        run: rm -rf node_modules
+
       - name: Upload site files
         uses: actions/upload-pages-artifact@v2
         with:
+
           path: .
 
   deploy:
@@ -43,6 +47,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages (no Jekyll)
         id: deployment
         uses: actions/deploy-pages@v2
+        with:
+          no_jekyll: true
