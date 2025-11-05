@@ -1,0 +1,41 @@
+.lang-btn {
+  position: relative;
+  border: none;
+  background-color: $color-bg-body;
+  color: $color-text-dark;
+  transition: color 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;
+  padding: 4px 8px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; /* немного отступа от текста */
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    background-color: $color-text-dark;
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  &:hover::after {
+    transform: translateX(-50%) scaleX(1);
+    opacity: 1;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &.active {
+    cursor: default;
+
+    &::after {
+      transform: translateX(-50%) scaleX(1);
+      opacity: 1;
+    }
+  }
+}

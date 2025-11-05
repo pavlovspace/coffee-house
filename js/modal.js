@@ -120,3 +120,18 @@ addToCartBtn.addEventListener('click', () => {
     updateCartCounter();
     closeModal();
 });
+// === Обработчики выбора размера и добавок ===
+modal.addEventListener('click', (e) => {
+    const target = e.target;
+    // Размер
+    if (target.classList.contains('option') && target.closest('.modal__sizes')) {
+        modal.querySelectorAll('.modal__sizes .option').forEach((btn) => btn.classList.remove('active'));
+        target.classList.add('active');
+        updateTotal();
+    }
+    // Добавки
+    if (target.classList.contains('option') && target.closest('.modal__additives')) {
+        target.classList.toggle('active');
+        updateTotal();
+    }
+});

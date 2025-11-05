@@ -1,4 +1,3 @@
-"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -8,11 +7,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+import { initI18n } from './i18n.js';
 window.addEventListener('DOMContentLoaded', () => __awaiter(void 0, void 0, void 0, function* () {
     const sliderTrack = document.querySelector('.slider__track');
     const prevBtn = document.querySelector('.slider__btn--prev');
     const nextBtn = document.querySelector('.slider__btn--next');
     const dotsContainer = document.querySelector('.slider__dots');
+    initI18n();
     if (!sliderTrack) {
         console.error('❌ .slider__track not found in HTML');
         return;

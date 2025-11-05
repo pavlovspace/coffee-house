@@ -108,24 +108,32 @@ function renderCart() {
 // =============================
 export function addToCart(item) {
     const cart = getCart();
-    const existing = cart.find((i) => i.name === item.name && i.size === item.size);
-    if (existing) {
-        existing.count = (existing.count || 1) + 1;
-    }
-    else {
-        item.count = 1;
-        cart.push(item);
-    }
+    // Каждый товар добавляется как новая запись
+    item.id = crypto.randomUUID();
+    item.count = 1;
+    cart.push(item);
     saveCart(cart);
     renderCart();
     updateCartCounter();
     console.log('🧺 Added to cart:', item);
 }
 function removeFromCart(id) {
-    const cart = getCart().filter((item) => item.id !== id);
-    saveCart(cart);
-    renderCart();
-    updateCartCounter();
+    const cart = getCart();
+    const index = cart.findIndex((item) => item.id === id);
+    if (index !== -1) {
+        const product = cart[index];
+        // если count > 1 — уменьшаем количество
+        if ((product.count || 1) > 1) {
+            product.count--;
+        }
+        else {
+            // иначе удаляем полностью
+            cart.splice(index, 1);
+        }
+        saveCart(cart);
+        renderCart();
+        updateCartCounter();
+    }
 }
 // =============================
 //         CLEAR / INIT
@@ -169,7 +177,7 @@ function renderAuthSection() {
       <button class="button-outline button-icon-dark button-icon-dark--cart" id="registerBtn">Registration</button>
     `;
         (_a = document.getElementById('signInBtn')) === null || _a === void 0 ? void 0 : _a.addEventListener('click', () => {
-            window.location.href = 'login.html';
+            window.location.href = 'signin.html';
         });
         (_b = document.getElementById('registerBtn')) === null || _b === void 0 ? void 0 : _b.addEventListener('click', () => {
             window.location.href = 'register.html';

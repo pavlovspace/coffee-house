@@ -1,3 +1,4 @@
+import { initI18n } from './i18n.js';
 interface Coffee {
   id: string;
   name: string;
@@ -12,6 +13,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   const prevBtn = document.querySelector('.slider__btn--prev') as HTMLElement | null;
   const nextBtn = document.querySelector('.slider__btn--next') as HTMLElement | null;
   const dotsContainer = document.querySelector('.slider__dots') as HTMLElement | null;
+   initI18n();
 
   if (!sliderTrack) {
     console.error('❌ .slider__track not found in HTML');

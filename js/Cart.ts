@@ -127,28 +127,41 @@ function renderCart(): void {
 //     ADD / REMOVE
 // =============================
 export function addToCart(item: CartItem): void {
-    const cart = getCart()
-    const existing = cart.find((i) => i.name === item.name && i.size === item.size)
+  const cart = getCart()
 
-    if (existing) {
-        existing.count = (existing.count || 1) + 1
+  // Каждый товар добавляется как новая запись
+  item.id = crypto.randomUUID()
+  item.count = 1
+
+  cart.push(item)
+  saveCart(cart)
+  renderCart()
+  updateCartCounter()
+  console.log('🧺 Added to cart:', item)
+}
+
+
+function removeFromCart(id: string): void {
+  const cart = getCart()
+  const index = cart.findIndex((item) => item.id === id)
+
+  if (index !== -1) {
+    const product = cart[index]
+
+    // если count > 1 — уменьшаем количество
+    if ((product.count || 1) > 1) {
+      product.count!--
     } else {
-        item.count = 1
-        cart.push(item)
+      // иначе удаляем полностью
+      cart.splice(index, 1)
     }
 
     saveCart(cart)
     renderCart()
     updateCartCounter()
-    console.log('🧺 Added to cart:', item)
+  }
 }
 
-function removeFromCart(id: string): void {
-    const cart = getCart().filter((item) => item.id !== id)
-    saveCart(cart)
-    renderCart()
-    updateCartCounter()
-}
 
 // =============================
 //         CLEAR / INIT
@@ -197,7 +210,7 @@ function renderAuthSection(): void {
       <button class="button-outline button-icon-dark button-icon-dark--cart" id="registerBtn">Registration</button>
     `
         document.getElementById('signInBtn')?.addEventListener('click', () => {
-            window.location.href = 'login.html'
+            window.location.href = 'signin.html'
         })
         document.getElementById('registerBtn')?.addEventListener('click', () => {
             window.location.href = 'register.html'
@@ -270,3 +283,4 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCartCounter()
     renderAuthSection()
 })
+
