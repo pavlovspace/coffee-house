@@ -90,13 +90,13 @@ window.addEventListener('resize', () => {
 // === Инициализация ===
 window.addEventListener('DOMContentLoaded', () => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        menuGrid.innerHTML = `<div class="loader"></div>`;
+        menuGrid.innerHTML = '<div class="loader"></div>';
         products = yield fetchProducts();
         renderProducts();
     }
     catch (error) {
         console.error('Ошибка API:', error);
-        menuGrid.innerHTML = `<p class="error">Something went wrong. Please, refresh the page.</p>`;
+        menuGrid.innerHTML = '<p class="error">Something went wrong. Please, refresh the page.</p>';
     }
 }));
 export {};

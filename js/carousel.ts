@@ -4,7 +4,7 @@ function initCarousel(): void {
   const next = document.querySelector('.next') as HTMLButtonElement | null;
   const prev = document.querySelector('.prev') as HTMLButtonElement | null;
 
-  if (slides.length === 0) return; // карточек ещё нет
+  if (slides.length === 0) return; 
 
   let index = 0;
 

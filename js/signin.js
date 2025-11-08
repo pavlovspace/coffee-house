@@ -52,44 +52,51 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     // --- общая проверка и разблокировка кнопки ---
     const validateForm = () => {
+        if (!loginInput || !passwordInput || !signInBtn)
+            return false;
         const validLogin = VALIDATION_RULES.login.test(loginInput.value);
         const validPassword = VALIDATION_RULES.password.test(passwordInput.value);
         signInBtn.disabled = !(validLogin && validPassword);
         return validLogin && validPassword;
     };
     // --- события ---
-    [loginInput, passwordInput].forEach((input) => {
-        input.addEventListener('input', validateForm);
-        input.addEventListener('focus', () => clearError(input));
-        input.addEventListener('blur', () => validateField(input));
-    });
+    if (loginInput && passwordInput) {
+        ;
+        [loginInput, passwordInput].forEach((input) => {
+            input.addEventListener('input', validateForm);
+            input.addEventListener('focus', () => clearError(input));
+            input.addEventListener('blur', () => validateField(input));
+        });
+    }
     // --- отправка формы ---
-    form.addEventListener('submit', (e) => __awaiter(void 0, void 0, void 0, function* () {
-        e.preventDefault();
-        if (!validateForm())
-            return;
-        errorContainer.textContent = '';
-        signInBtn.disabled = true;
-        signInBtn.textContent = 'Signing in...';
-        try {
-            // имитация запроса
-            yield new Promise((r) => setTimeout(r, 1500));
-            const correctLogin = 'admin';
-            const correctPassword = 'Admin!123';
-            if (loginInput.value !== correctLogin || passwordInput.value !== correctPassword) {
-                throw new Error('Incorrect login or password');
+    if (form && signInBtn && loginInput && passwordInput && errorContainer) {
+        form.addEventListener('submit', (e) => __awaiter(void 0, void 0, void 0, function* () {
+            e.preventDefault();
+            if (!validateForm())
+                return;
+            errorContainer.textContent = '';
+            signInBtn.disabled = true;
+            signInBtn.textContent = 'Signing in...';
+            try {
+                // имитация запроса
+                yield new Promise((r) => setTimeout(r, 1500));
+                const correctLogin = 'admin';
+                const correctPassword = 'Admin!123';
+                if (loginInput.value !== correctLogin || passwordInput.value !== correctPassword) {
+                    throw new Error('Incorrect login or password');
+                }
+                localStorage.setItem('isAuthenticated', 'true');
+                showNotification('Welcome back!', 'success');
+                setTimeout(() => (window.location.href = 'menu.html'), 1500);
             }
-            localStorage.setItem('isAuthenticated', 'true');
-            showNotification('Welcome back!', 'success');
-            setTimeout(() => (window.location.href = 'menu.html'), 1500);
-        }
-        catch (err) {
-            console.error(err);
-            errorContainer.textContent = 'Incorrect login or password';
-            signInBtn.disabled = false;
-            signInBtn.textContent = 'Sign In';
-        }
-    }));
+            catch (err) {
+                console.error(err);
+                errorContainer.textContent = 'Incorrect login or password';
+                signInBtn.disabled = false;
+                signInBtn.textContent = 'Sign In';
+            }
+        }));
+    }
     // --- уведомление ---
     function showNotification(text, type) {
         const note = document.createElement('div');

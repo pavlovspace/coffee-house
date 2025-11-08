@@ -5,7 +5,7 @@ function initCarousel() {
     const next = document.querySelector('.next');
     const prev = document.querySelector('.prev');
     if (slides.length === 0)
-        return; // карточек ещё нет
+        return;
     let index = 0;
     function showSlide(i) {
         slides.forEach((slide) => slide.classList.remove('active'));

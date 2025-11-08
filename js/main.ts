@@ -1,12 +1,7 @@
+import type { Coffee } from './types.js';
+import type { ApiProduct } from './types.js';
 import { initI18n } from './i18n.js';
-interface Coffee {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  discountPrice?: number;
-  imageUrl: string;
-}
+
 
 window.addEventListener('DOMContentLoaded', async () => {
   const sliderTrack = document.querySelector('.slider__track') as HTMLElement | null;
@@ -20,7 +15,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     return;
   }
 
-  const loaderHTML = `<div class="loader"></div>`;
+  const loaderHTML = '<div class="loader"></div>';
   sliderTrack.innerHTML = loaderHTML;
 
   async function fetchFavorites(): Promise<Coffee[]> {
@@ -33,12 +28,12 @@ window.addEventListener('DOMContentLoaded', async () => {
     const json = await response.json();
     const data = json.data || [];
 
-    return data.map((item: any) => ({
+    return data.map((item: ApiProduct) => ({
       id: String(item.id),
       name: item.name,
       description: item.description,
-      price: parseFloat(item.price),
-      discountPrice: item.discountPrice ? parseFloat(item.discountPrice) : undefined,
+     price: parseFloat(String(item.price)),
+      discountPrice: item.discountPrice ? parseFloat(String(item.discountPrice)) : undefined,
       imageUrl: `assets/images/${item.name.toLowerCase().replace(/\s+/g, '-')}.png`,
     }));
   }
@@ -94,6 +89,6 @@ window.addEventListener('DOMContentLoaded', async () => {
     setupSlider();
   } catch (err) {
     console.error('Slider error:', err);
-    sliderTrack.innerHTML = `<p class="error">Something went wrong. Please, refresh the page.</p>`;
+    sliderTrack.innerHTML = '<p class="error">Something went wrong. Please, refresh the page.</p>';
   }
 });

@@ -60,7 +60,7 @@ document.addEventListener('click', (e) => __awaiter(void 0, void 0, void 0, func
     modal.classList.add('active');
     overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
-    modalTitle.innerHTML = `<div class="loader"></div>`;
+    modalTitle.innerHTML = '<div class="loader"></div>';
     modalDesc.textContent = '';
     modalPrice.textContent = '';
     const product = yield fetchProductById(id);

@@ -18,7 +18,7 @@ window.addEventListener('DOMContentLoaded', () => __awaiter(void 0, void 0, void
         console.error('❌ .slider__track not found in HTML');
         return;
     }
-    const loaderHTML = `<div class="loader"></div>`;
+    const loaderHTML = '<div class="loader"></div>';
     sliderTrack.innerHTML = loaderHTML;
     function fetchFavorites() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -31,8 +31,8 @@ window.addEventListener('DOMContentLoaded', () => __awaiter(void 0, void 0, void
                 id: String(item.id),
                 name: item.name,
                 description: item.description,
-                price: parseFloat(item.price),
-                discountPrice: item.discountPrice ? parseFloat(item.discountPrice) : undefined,
+                price: parseFloat(String(item.price)),
+                discountPrice: item.discountPrice ? parseFloat(String(item.discountPrice)) : undefined,
                 imageUrl: `assets/images/${item.name.toLowerCase().replace(/\s+/g, '-')}.png`,
             }));
         });
@@ -80,6 +80,6 @@ window.addEventListener('DOMContentLoaded', () => __awaiter(void 0, void 0, void
     }
     catch (err) {
         console.error('Slider error:', err);
-        sliderTrack.innerHTML = `<p class="error">Something went wrong. Please, refresh the page.</p>`;
+        sliderTrack.innerHTML = '<p class="error">Something went wrong. Please, refresh the page.</p>';
     }
 }));

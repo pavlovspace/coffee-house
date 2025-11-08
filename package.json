@@ -2,7 +2,7 @@
   "name": "coffee-house",
   "version": "1.0.0",
   "type": "module",
-  "description": "",
+  "description": "Coffee House frontend project",
   "main": "index.js",
   "scripts": {
     "build:css": "sass --style=compressed scss/style.scss css/style.min.css",
@@ -11,8 +11,10 @@
     "build:ts": "tsc",
     "watch:ts": "tsc --watch",
     "lint": "eslint 'js/**/*.{ts,js}'",
+    "lint:fix": "eslint 'js/**/*.{ts,js}' --fix",
     "watch": "npm-run-all --parallel watch:css watch:ts",
-    "build": "npm run build:css && npm run build:js && npm run build:ts"
+    "build": "npm run build:css && npm run build:js && npm run build:ts",
+    "format": "prettier --write 'js/**/*.{ts,js,json,css,scss,html}'"
   },
   "keywords": [],
   "author": "",
@@ -21,7 +23,10 @@
     "@typescript-eslint/eslint-plugin": "^8.46.2",
     "@typescript-eslint/parser": "^8.46.2",
     "eslint": "^9.38.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
     "npm-run-all": "^4.1.5",
+    "prettier": "^3.3.3",
     "sass": "^1.93.2",
     "terser": "^5.44.0",
     "typescript": "^5.9.3"

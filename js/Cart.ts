@@ -1,81 +1,70 @@
-// =============================
-//         TYPES
-// =============================
-export interface CartItem {
-    id: string
-    name: string
-    size: string
-    additives: string[]
-    price: number
-    discountPrice?: number
-    imageUrl: string
-    count?: number
-}
+import type { CartItem } from './types.js';
+
 
 // =============================
 //         CONST & STATE
 // =============================
-const CART_KEY = 'coffee_cart'
-let isAuthenticated = localStorage.getItem('isAuthenticated') === 'true'
+const CART_KEY = 'coffee_cart';
+let isAuthenticated = localStorage.getItem('isAuthenticated') === 'true';
 
 // =============================
 //         DOM
 // =============================
-const cartList = document.querySelector('.cart__list') as HTMLElement | null
-const cartTotal = document.querySelector('.cart__total') as HTMLElement | null
-const clearBtn = document.getElementById('clearCart') as HTMLButtonElement | null
-const cartIcon = document.querySelector('.cart-link') as HTMLElement | null
-const authContainer = document.querySelector('.auth-buttons') as HTMLElement | null
+const cartList = document.querySelector('.cart__list') as HTMLElement | null;
+const cartTotal = document.querySelector('.cart__total') as HTMLElement | null;
+const clearBtn = document.getElementById('clearCart') as HTMLButtonElement | null;
+const cartIcon = document.querySelector('.cart-link') as HTMLElement | null;
+const authContainer = document.querySelector('.auth-buttons') as HTMLElement | null;
 
-console.log('📦 Cart script loaded')
+console.log('📦 Cart script loaded');
 
 // =============================
 //         LOCAL STORAGE
 // =============================
 function getCart(): CartItem[] {
-    const saved = localStorage.getItem(CART_KEY)
-    return saved ? JSON.parse(saved) : []
+    const saved = localStorage.getItem(CART_KEY);
+    return saved ? JSON.parse(saved) : [];
 }
 
 function saveCart(cart: CartItem[]): void {
-    localStorage.setItem(CART_KEY, JSON.stringify(cart))
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
 }
 
 // =============================
 //         ICON & COUNTER
 // =============================
 export function updateCartCounter(): void {
-    const cart = getCart()
-    const count = cart.reduce((sum, item) => sum + (item.count || 1), 0)
-    if (!cartIcon) return
+    const cart = getCart();
+    const count = cart.reduce((sum, item) => sum + (item.count || 1), 0);
+    if (!cartIcon) return;
 
     if (isAuthenticated || count > 0) {
-        cartIcon.style.display = 'flex'
+        cartIcon.style.display = 'flex';
     } else {
-        cartIcon.style.display = 'none'
+        cartIcon.style.display = 'none';
     }
 
-    const counter = cartIcon.querySelector('.cart-link__counter') as HTMLElement | null
-    if (counter) counter.textContent = String(count)
+    const counter = cartIcon.querySelector('.cart-link__counter') as HTMLElement | null;
+    if (counter) counter.textContent = String(count);
 }
 
 // =============================
 //         CART RENDER
 // =============================
 function renderCart(): void {
-    const cart = getCart()
+    const cart = getCart();
 
-    if (!cartList || !cartTotal) return
+    if (!cartList || !cartTotal) return;
 
     if (cart.length === 0) {
-        cartList.innerHTML = `<p class="empty">Your cart is empty.</p>`
-        cartTotal.innerHTML = `<span>$0.00</span>`
-        updateCartCounter()
-        return
+        cartList.innerHTML = '<p class="empty">Your cart is empty.</p>';
+        cartTotal.innerHTML = '<span>$0.00</span>';
+        updateCartCounter();
+        return;
     }
 
-    const total = cart.reduce((sum, item) => sum + item.price, 0)
-    const totalDiscounted = cart.reduce((sum, item) => sum + (item.discountPrice ?? item.price), 0)
+    const total = cart.reduce((sum, item) => sum + item.price, 0);
+    const totalDiscounted = cart.reduce((sum, item) => sum + (item.discountPrice ?? item.price), 0);
 
     cartList.innerHTML = cart
         .map(
@@ -103,7 +92,7 @@ function renderCart(): void {
         </div>
       </div>`
         )
-        .join('')
+        .join('');
 
     cartTotal.innerHTML = isAuthenticated
         ? `
@@ -111,54 +100,54 @@ function renderCart(): void {
         <span class="line-through">$${total.toFixed(2)}</span>
         <span>$${totalDiscounted.toFixed(2)}</span>
       </div>`
-        : `<span>$${total.toFixed(2)}</span>`
+        : `<span>$${total.toFixed(2)}</span>`;
 
     document.querySelectorAll('.cart__item__remove').forEach((btn) => {
         btn.addEventListener('click', (e) => {
-            const target = (e.target as HTMLElement).closest('.cart__item') as HTMLElement | null
-            if (target?.dataset.id) removeFromCart(target.dataset.id)
-        })
-    })
+            const target = (e.target as HTMLElement).closest('.cart__item') as HTMLElement | null;
+            if (target?.dataset.id) removeFromCart(target.dataset.id);
+        });
+    });
 
-    updateCartCounter()
+    updateCartCounter();
 }
 
 // =============================
 //     ADD / REMOVE
 // =============================
 export function addToCart(item: CartItem): void {
-  const cart = getCart()
+  const cart = getCart();
 
   // Каждый товар добавляется как новая запись
-  item.id = crypto.randomUUID()
-  item.count = 1
+  item.id = crypto.randomUUID();
+  item.count = 1;
 
-  cart.push(item)
-  saveCart(cart)
-  renderCart()
-  updateCartCounter()
-  console.log('🧺 Added to cart:', item)
+  cart.push(item);
+  saveCart(cart);
+  renderCart();
+  updateCartCounter();
+  console.log('🧺 Added to cart:', item);
 }
 
 
 function removeFromCart(id: string): void {
-  const cart = getCart()
-  const index = cart.findIndex((item) => item.id === id)
+  const cart = getCart();
+  const index = cart.findIndex((item) => item.id === id);
 
   if (index !== -1) {
-    const product = cart[index]
+    const product = cart[index];
 
     // если count > 1 — уменьшаем количество
     if ((product.count || 1) > 1) {
-      product.count!--
+      product.count!--;
     } else {
       // иначе удаляем полностью
-      cart.splice(index, 1)
+      cart.splice(index, 1);
     }
 
-    saveCart(cart)
-    renderCart()
-    updateCartCounter()
+    saveCart(cart);
+    renderCart();
+    updateCartCounter();
   }
 }
 
@@ -167,54 +156,54 @@ function removeFromCart(id: string): void {
 //         CLEAR / INIT
 // =============================
 clearBtn?.addEventListener('click', () => {
-    localStorage.removeItem(CART_KEY)
-    renderCart()
-    updateCartCounter()
-})
+    localStorage.removeItem(CART_KEY);
+    renderCart();
+    updateCartCounter();
+});
 
 cartIcon?.addEventListener('click', () => {
-    window.location.href = 'cart.html'
-})
+    window.location.href = 'cart.html';
+});
 
 // =============================
 //     NOTIFICATION SYSTEM
 // =============================
 function showNotification(message: string, type: 'error' | 'success'): void {
-    const existing = document.querySelector('.notification')
-    if (existing) existing.remove()
+    const existing = document.querySelector('.notification');
+    if (existing) existing.remove();
 
-    const note = document.createElement('div')
-    note.className = `notification ${type}`
-    note.textContent = message
+    const note = document.createElement('div');
+    note.className = `notification ${type}`;
+    note.textContent = message;
 
-    document.body.prepend(note)
+    document.body.prepend(note);
 
-    setTimeout(() => note.classList.add('visible'), 10)
+    setTimeout(() => note.classList.add('visible'), 10);
     setTimeout(() => {
-        note.classList.remove('visible')
-        setTimeout(() => note.remove(), 400)
-    }, 4000)
+        note.classList.remove('visible');
+        setTimeout(() => note.remove(), 400);
+    }, 4000);
 }
 
 // =============================
 //     AUTH / CHECKOUT SECTION
 // =============================
 function renderAuthSection(): void {
-    if (!authContainer) return
+    if (!authContainer) return;
 
-    authContainer.innerHTML = ''
+    authContainer.innerHTML = '';
 
     if (!isAuthenticated) {
         authContainer.innerHTML = `
       <button class="button-outline button-icon-dark button-icon-dark--cart" id="signInBtn">Sign In</button>
       <button class="button-outline button-icon-dark button-icon-dark--cart" id="registerBtn">Registration</button>
-    `
+    `;
         document.getElementById('signInBtn')?.addEventListener('click', () => {
-            window.location.href = 'signin.html'
-        })
+            window.location.href = 'signin.html';
+        });
         document.getElementById('registerBtn')?.addEventListener('click', () => {
-            window.location.href = 'register.html'
-        })
+            window.location.href = 'register.html';
+        });
     } else {
         authContainer.innerHTML = `
       <div class="delivery">
@@ -224,8 +213,8 @@ function renderAuthSection(): void {
         </label>
         <button class="button-primary" id="confirmOrderBtn">Confirm Order</button>
       </div>
-    `
-        document.getElementById('confirmOrderBtn')?.addEventListener('click', handleOrderConfirmation)
+    `;
+        document.getElementById('confirmOrderBtn')?.addEventListener('click', handleOrderConfirmation);
     }
 }
 
@@ -233,45 +222,45 @@ function renderAuthSection(): void {
 //     ORDER CONFIRMATION
 // =============================
 async function handleOrderConfirmation(): Promise<void> {
-    const btn = document.getElementById('confirmOrderBtn') as HTMLButtonElement | null
-    const input = document.querySelector('.delivery__input') as HTMLInputElement | null
-    if (!btn || !input) return
+    const btn = document.getElementById('confirmOrderBtn') as HTMLButtonElement | null;
+    const input = document.querySelector('.delivery__input') as HTMLInputElement | null;
+    if (!btn || !input) return;
 
-    const address = input.value.trim()
+    const address = input.value.trim();
     if (!address) {
-        showNotification('Please enter a delivery address.', 'error')
-        return
+        showNotification('Please enter a delivery address.', 'error');
+        return;
     }
 
-    btn.disabled = true
-    input.disabled = true
-    btn.innerHTML = `<div class="loader small"></div> Processing...`
+    btn.disabled = true;
+    input.disabled = true;
+    btn.innerHTML = '<div class="loader small"></div> Processing...';
 
     try {
-        const cart = getCart()
+        const cart = getCart();
 
         // Пример запроса — тут можно заменить на реальный endpoint
         const response = await fetch('https://6kt29kkeub.execute-api.eu-central-1.amazonaws.com/orders', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ address, items: cart }),
-        })
+        });
 
-        if (!response.ok) throw new Error(`HTTP ${response.status}`)
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
-        localStorage.removeItem(CART_KEY)
-        renderCart()
-        updateCartCounter()
+        localStorage.removeItem(CART_KEY);
+        renderCart();
+        updateCartCounter();
 
-        showNotification('Thank you for your order! Our manager will contact you shortly.', 'success')
-        authContainer!.innerHTML = `<p class="success-text">✅ Order placed successfully!</p>`
+        showNotification('Thank you for your order! Our manager will contact you shortly.', 'success');
+        authContainer!.innerHTML = '<p class="success-text">✅ Order placed successfully!</p>';
     } catch (err) {
-        console.error('❌ Order error:', err)
-        showNotification('Something went wrong. Please, try again.', 'error')
+        console.error('❌ Order error:', err);
+        showNotification('Something went wrong. Please, try again.', 'error');
     } finally {
-        btn.disabled = false
-        btn.textContent = 'Confirm Order'
-        input.disabled = false
+        btn.disabled = false;
+        btn.textContent = 'Confirm Order';
+        input.disabled = false;
     }
 }
 
@@ -279,8 +268,8 @@ async function handleOrderConfirmation(): Promise<void> {
 //         INIT
 // =============================
 document.addEventListener('DOMContentLoaded', () => {
-    renderCart()
-    updateCartCounter()
-    renderAuthSection()
-})
+    renderCart();
+    updateCartCounter();
+    renderAuthSection();
+});
 

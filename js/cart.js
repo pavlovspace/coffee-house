@@ -57,8 +57,8 @@ function renderCart() {
     if (!cartList || !cartTotal)
         return;
     if (cart.length === 0) {
-        cartList.innerHTML = `<p class="empty">Your cart is empty.</p>`;
-        cartTotal.innerHTML = `<span>$0.00</span>`;
+        cartList.innerHTML = '<p class="empty">Your cart is empty.</p>';
+        cartTotal.innerHTML = '<span>$0.00</span>';
         updateCartCounter();
         return;
     }
@@ -212,7 +212,7 @@ function handleOrderConfirmation() {
         }
         btn.disabled = true;
         input.disabled = true;
-        btn.innerHTML = `<div class="loader small"></div> Processing...`;
+        btn.innerHTML = '<div class="loader small"></div> Processing...';
         try {
             const cart = getCart();
             // Пример запроса — тут можно заменить на реальный endpoint
@@ -227,7 +227,7 @@ function handleOrderConfirmation() {
             renderCart();
             updateCartCounter();
             showNotification('Thank you for your order! Our manager will contact you shortly.', 'success');
-            authContainer.innerHTML = `<p class="success-text">✅ Order placed successfully!</p>`;
+            authContainer.innerHTML = '<p class="success-text">✅ Order placed successfully!</p>';
         }
         catch (err) {
             console.error('❌ Order error:', err);

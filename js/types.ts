@@ -33,11 +33,14 @@ export interface User {
 }
 
 export interface CartItem {
-  productId: string;
-  size: string;
-  extras: string[];
-  quantity: number;
-  totalPrice: number;
+    id: string
+    name: string
+    size: string
+    additives: string[]
+    price: number
+    discountPrice?: number
+    imageUrl: string
+    count?: number
 }
 
 export interface Order {
@@ -54,4 +57,12 @@ export interface FavoriteCoffee {
   description: string;
   price: number;
   imageUrl: string;
+}
+
+export interface ApiProduct {
+  id: string | number;
+  name: string;
+  description: string;
+  price: string | number;
+  discountPrice?: string | number;
 }

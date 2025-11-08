@@ -19,8 +19,8 @@ export default [
       '@typescript-eslint': eslintPluginTs,
     },
     rules: {
-      '@typescript-eslint/no-explicit-any': 'error',
-      'no-console': 'warn',
+      'no-console': 'off',                    
+      '@typescript-eslint/no-explicit-any': 'warn', 
       'semi': ['error', 'always'],
       'quotes': ['error', 'single']
     },

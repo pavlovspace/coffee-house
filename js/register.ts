@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     if (!validate()) return;
 
-    const paymentMethod = document.querySelector('input[name="payment"]:checked')?.value || 'cash';
+const paymentMethod =  (document.querySelector('input[name="payment"]:checked') as HTMLInputElement)?.value || 'cash';
 
     if (registerBtn) {
       registerBtn.disabled = true;
