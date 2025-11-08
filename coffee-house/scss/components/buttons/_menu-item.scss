@@ -1,0 +1,57 @@
+.menu-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+  color: $color-text-dark;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color $transition-base;
+
+  // underline
+  &::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background-color: $color-text-dark;
+    transform: translateX(-50%);
+    transition: width $transition-base;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: -25px;
+    width: 20px;
+    height: 20px;
+    background: url("../../assets/icons/coffee-cup.svg") no-repeat center / contain;
+    opacity: 0;
+    transition: opacity $transition-base, transform $transition-base;
+  }
+
+  
+  &:hover {
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  &:hover::before {
+    width: 100%;
+  }
+
+  &.active {
+    cursor: default;
+
+    &::before {
+      width: 0;
+    }
+  }
+}

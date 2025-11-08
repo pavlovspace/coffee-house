@@ -1,0 +1,202 @@
+/* бургер меню */
+
+.burger-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #e1d4c9;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+ 
+    padding-right: 20px;
+    padding-top: 20px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 1000000;
+
+    &.open {
+        transform: translateX(0);
+    }
+
+    &__header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 60px;
+
+        .burger-menu__logo {
+            width: 100px;
+            height: 60px;
+               padding-left: 60px;
+        }
+    }
+
+    &__nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+
+        li {
+            margin-bottom: 40px;
+
+            a {
+                font-family: 'Inter', sans-serif;
+                font-weight: 600;
+                font-size: 32px;
+                line-height: 125%;
+                color: #403f3d;
+                text-decoration: none;
+                transition: color 0.3s ease;
+
+                &:hover {
+                    color: #b0907a;
+                }
+
+                &.active {
+                    border: 1px solid #665f55;
+                    padding: 8px 16px;
+                    border-radius: 100px;
+                }
+            }
+        }
+    }
+
+    &__link {
+        margin-top: auto;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: 'Inter', sans-serif;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 125%;
+        color: #403f3d;
+        text-decoration: none;
+
+        img {
+            width: 28px;
+            height: 28px;
+        }
+
+        &:hover {
+            color: #b0907a;
+        }
+    }
+}
+
+/* бургер-кнопка */
+.button-icon-burger {
+    display: none;
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border: 1px solid #665f55;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        width: 16px;
+        height: 2px;
+        background-color: #403f3d;
+        border-radius: 1px;
+        transform: translateX(-50%);
+        transition: all 0.3s ease;
+    }
+
+    &::before {
+        top: 16px;
+    }
+
+    &::after {
+        bottom: 16px;
+    }
+}
+
+// CLOSE BTN
+/* Универсальная кнопка-крестик (без картинок) */
+.close-btn {
+  /* размеры по макету */
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid $color-text-dark;
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  transition: background-color $transition-base, border-color $transition-base, color $transition-base;
+  /* управляем цветом линий через currentColor */
+  color: $color-text-dark;
+
+  /* две линии крестика */
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 18px;
+    height: 2px;
+    border-radius: 1px;
+    background-color: currentColor;  /* линии берут цвет из color */
+    transform-origin: center;
+    transition: background-color $transition-base, transform $transition-base, opacity $transition-base;
+  }
+
+  &::before { transform: translate(-50%, -50%) rotate(45deg); }
+  &::after  { transform: translate(-50%, -50%) rotate(-45deg); }
+
+  /* hover/invert: фон тёмный, линии светлые */
+  &:hover {
+    background-color: $color-text-dark;
+    border-color: $color-text-dark;
+    color: $color-text-light; /* currentColor -> линии станут светлыми */
+  }
+
+  /* фокус для клавиатуры */
+  &:focus-visible {
+    outline: 2px dashed $color-border-dark;
+    outline-offset: 2px;
+  }
+}
+
+/* Модификатор для маленькой версии (если понадобится) */
+.close-btn--sm {
+  width: 32px;
+  height: 32px;
+
+  &::before,
+  &::after { width: 14px; }
+}
+
+/* Если ставишь в шапку бургер-меню — выровнять справа */
+.burger-menu__close {
+  @extend .close-btn;
+  /* при желании можно переопределить размер: */
+  /* @extend .close-btn--sm; */
+}
+
+
+/* только на мобильных бургер видим */
+@media (max-width: 768px) {
+    .button-icon-burger {
+        display: flex;
+    }
+
+    .header__nav,
+    .header__menu-link {
+        display: none;
+    }
+}

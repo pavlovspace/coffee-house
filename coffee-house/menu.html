@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Coffee House — Menu</title>
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="assets/images/logo.png" />
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+        <!-- Styles -->
+        <link rel="stylesheet" href="css/style.min.css" />
+    </head>
+
+    <body>
+        <!-- HEADER -->
+        <!-- BURGER MENU -->
+            <div class="burger-menu" id="burgerMenu">
+                <div class="burger-menu__header">
+                    <img src="assets/images/logo.png" alt="Coffee House logo" class="burger-menu__logo" />
+                    <button class="burger-menu__close" id="burgerClose" aria-label="Close menu"></button>
+                </div>
+
+                <nav class="burger-menu__nav">
+                    <ul>
+                        <li><a href="#enjoy">Favorite coffee</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#app">Mobile app</a></li>
+                        <li><a href="#contacts">Contact us</a></li>
+                        <li>
+                            <a href="menu.html" class="burger-menu__menu">
+                                Menu
+                                <img src="assets/icons/coffee-cup.svg" alt="coffee icon" />
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+        <!-- HEADER -->
+        <header class="header container">
+            <div class="header__container ">
+                <a href="index.html" class="header__logo">
+                    <img src="assets/images/logo.png" alt="Coffee House logo" />
+                </a>
+                <nav class="nav header__nav">
+                    <ul class="nav__list">
+                        <li><a href="#enjoy" class="menu-item">Home</a></li>
+                        <li><a href="#about" class="menu-item">About</a></li>
+                        <li><a href="#app" class="menu-item">Mobile App</a></li>
+                        <li><a href="#footer" class="menu-item">Contact Us</a></li>
+                    </ul>
+                </nav>
+
+                <a href="menu.html" class="menu-item">Menu</a>
+
+                <button class="button-icon-burger" id="burgerIcon"></button>
+            </div>
+        </header>
+
+        <!-- MENU SECTION -->
+        <main>
+            <section class="menu">
+                <div class="menu__container container">
+                    <h1 class="menu__title">Behind each of our cups hides an <span>amazing surprise</span></h1>
+
+                    <!-- Tabs -->
+                    <div class="menu__tabs">
+                        <button class="tab-item active">
+                            <img src="assets/icons/coffee.png" alt="Coffee icon" class="tab-item__icon" />
+                            Coffee
+                        </button>
+
+                        <button class="tab-item">
+                            <img src="assets/icons/tea.png" alt="Tea icon" class="tab-item__icon" />
+                            Tea
+                        </button>
+
+                        <button class="tab-item">
+                            <img src="assets/icons/dessert.png" alt="Dessert icon" class="tab-item__icon" />
+                            Dessert
+                        </button>
+                    </div>
+
+                    <!-- Cards -->
+                    <div class="menu__items" id="menuItems">
+                        <!-- Заполняется через JS -->
+                    </div>
+
+                    <!-- Load More -->
+                    <button class="button-primary menu__load-more" id="loadMoreBtn">Load More</button>
+                </div>
+
+                <div class="menu__items" id="menuItems"></div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="footer" id="footer">
+            <div class="footer__container container">
+                <div class="footer__left">
+                    <h2 class="footer__title">Sip, Savor, Smile.</h2>
+                    <p class="footer__subtitle">It’s coffee time!</p>
+
+                    <div class="footer__socials">
+                        <a href="#" class="button-icon-light" aria-label="Twitter">
+                            <img src="assets/icons/twitter.svg" alt="Twitter" />
+                        </a>
+                        <a href="#" class="button-icon-light" aria-label="Instagram">
+                            <img src="assets/icons/instagram.svg" alt="Instagram" />
+                        </a>
+                        <a href="#" class="button-icon-light" aria-label="Facebook">
+                            <img src="assets/icons/facebook.svg" alt="Facebook" />
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer__right">
+                    <h3 class="footer__contact-title">Contact us</h3>
+                    <ul class="footer__contact-list">
+                        <li>
+                            <img src="assets/icons/pin.svg" alt="" />
+                            8558 Green Rd., LA
+                        </li>
+                        <li>
+                            <img src="assets/icons/phone.svg" alt="" />
+                            +1 (603) 555-0123
+                        </li>
+                        <li>
+                            <img src="assets/icons/clock.svg" alt="" />
+                            Mon–Sat: 9:00 AM – 23:00 PM
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+
+          <!-- MODAL -->
+        <div class="modal" id="productModal">
+            <div class="modal__overlay"></div>
+            <div class="modal__content">
+
+                <img src="" alt="Product image" class="modal__image" />
+                <div class="modal__info">
+                    <h3 class="modal__title"></h3>
+                    <p class="modal__desc"></p>
+
+                    <div class="modal__section">
+                        <h4>Size</h4>
+                        <div class="modal__options modal__sizes">
+                            <button class="option active" data-add="0.00">S 200 ml</button>
+                            <button class="option" data-add="0.50">M 300 ml</button>
+                            <button class="option" data-add="1.00">L 400 ml</button>
+                        </div>
+                    </div>
+
+                    <div class="modal__section">
+                        <h4>Additives</h4>
+                        <div class="modal__options modal__additives">
+                            <button class="option" data-add="0.50">Sugar</button>
+                            <button class="option" data-add="0.50">Cinnamon</button>
+                            <button class="option" data-add="0.50">Syrup</button>
+                        </div>
+                    </div>
+
+                    <div class="modal__total">
+                        <span>Total:</span>
+                        <strong class="modal__price">$0.00</strong>
+                    </div>
+
+                    <p class="modal__note">The cost is not final. Download our mobile app to place the final price and order.</p>
+
+                    <button class="modal__btn">Close</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="js/burger.js"></script>
+        <script src="js/menu.js"></script>
+        <script src="js/modal.js"></script>
+    </body>
+</html>

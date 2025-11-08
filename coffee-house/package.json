@@ -1,0 +1,21 @@
+{
+  "name": "coffee-house",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+ "scripts": {
+  "build:css": "sass --style=compressed scss/style.scss css/style.min.css",
+  "watch:css": "sass --watch --style=compressed scss/style.scss css/style.min.css",
+  "build:js": "terser js/main.js -o js/main.min.js -c -m",
+  "watch": "npm run watch:css",
+  "build": "npm run build:css && npm run build:js"
+}
+,
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.93.2",
+    "terser": "^5.44.0"
+  }
+}
