@@ -215,7 +215,6 @@ function handleOrderConfirmation() {
         btn.innerHTML = '<div class="loader small"></div> Processing...';
         try {
             const cart = getCart();
-            // Пример запроса — тут можно заменить на реальный endpoint
             const response = yield fetch('https://6kt29kkeub.execute-api.eu-central-1.amazonaws.com/orders', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },

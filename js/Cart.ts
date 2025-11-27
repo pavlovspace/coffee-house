@@ -239,7 +239,7 @@ async function handleOrderConfirmation(): Promise<void> {
     try {
         const cart = getCart();
 
-        // Пример запроса — тут можно заменить на реальный endpoint
+        
         const response = await fetch('https://6kt29kkeub.execute-api.eu-central-1.amazonaws.com/orders', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
