@@ -1,0 +1,90 @@
+.login-section {
+  max-width: 380px;
+  margin: 80px auto;
+  text-align: center;
+}
+
+.login-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #1c1c1c;
+}
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login__form label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin: 0 auto;
+}
+
+.login__form input {
+  width: 400px;
+  padding: 12px 14px;
+  border: 1px solid #d3c5b3;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border-color 0.2s;
+  margin: 0 auto;
+}
+
+.login__form input:focus {
+  outline: none;
+  border-color: #b78b57;
+}
+
+input.invalid {
+  border: 2px solid #e74c3c;
+  background: #fff6f6 url("assets/icons/error.svg") no-repeat right 10px center;
+  background-size: 18px;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 0.85rem;
+  margin-top: 4px;
+  align-self: flex-start;
+}
+
+
+.login-error {
+  color: #e74c3c;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.notification {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+.notification.visible {
+  opacity: 1;
+}
+
+.notification.success {
+  background: #27ae60;
+}
+
+.notification.error {
+  background: #e74c3c;
+}

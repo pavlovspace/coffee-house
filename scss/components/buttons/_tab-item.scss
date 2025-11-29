@@ -1,0 +1,71 @@
+.tab-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px 8px 8px;
+  border-radius: 100px;
+  border: 1px solid #C1B6AD;
+  background-color: transparent;
+  cursor: pointer;
+
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+  color: #403F3D;
+
+
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+
+  /* кружок под иконкой */
+  &::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #C1B6AD;
+    transition: background-color 0.3s ease;
+  }
+
+  /* сама иконка */
+  .tab-item__icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    z-index: 2;
+  }
+
+  /* текст */
+  span,
+  & {
+    padding-left: 40px; /* чтобы текст не налезал на кружок */
+  }
+
+  &:hover {
+    background-color: #665F55;
+    border-color: #665F55;
+    color: #E1D4C9;
+
+    &::before {
+      background-color: #E1D4C9; /* светлый кружок */
+    }
+
+
+  }
+
+  &.active {
+    background-color: #665F55;
+    border-color: #665F55;
+    color: #E1D4C9;
+
+    &::before {
+      background-color: #E1D4C9; /* светлый кружок */
+    }
+  }
+}

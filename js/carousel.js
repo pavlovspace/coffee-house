@@ -1,0 +1,49 @@
+"use strict";
+function initCarousel() {
+    const slides = document.querySelectorAll('.slider__item');
+    const indicators = document.querySelectorAll('.slider__indicator');
+    const next = document.querySelector('.next');
+    const prev = document.querySelector('.prev');
+    if (slides.length === 0)
+        return;
+    let index = 0;
+    function showSlide(i) {
+        slides.forEach((slide) => slide.classList.remove('active'));
+        indicators.forEach((dot) => dot.classList.remove('active'));
+        slides[i].classList.add('active');
+        if (indicators[i])
+            indicators[i].classList.add('active');
+    }
+    function nextSlide() {
+        index = (index + 1) % slides.length;
+        showSlide(index);
+    }
+    function prevSlide() {
+        index = (index - 1 + slides.length) % slides.length;
+        showSlide(index);
+    }
+    next === null || next === void 0 ? void 0 : next.addEventListener('click', nextSlide);
+    prev === null || prev === void 0 ? void 0 : prev.addEventListener('click', prevSlide);
+    indicators.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+            index = i;
+            showSlide(index);
+        });
+    });
+    showSlide(index);
+}
+// Ждём появления слайдов после подгрузки данных
+window.addEventListener('DOMContentLoaded', () => {
+    const sliderTrack = document.querySelector('.slider__track');
+    if (!sliderTrack)
+        return;
+    // наблюдаем за появлением слайдов
+    const observer = new MutationObserver(() => {
+        const slides = document.querySelectorAll('.slider__item');
+        if (slides.length > 0) {
+            initCarousel();
+            observer.disconnect(); // инициализация только один раз
+        }
+    });
+    observer.observe(sliderTrack, { childList: true });
+});

@@ -1,0 +1,52 @@
+.button-primary {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    // padding: 12px 40px;
+    text-decoration: none; // убираем подчёркивание для <a>
+    height: 64px;
+    border-radius: 100px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 150%;
+    border: none;
+    background-color: $color-bg-body;
+    color: $color-text-dark;
+    cursor: pointer;
+    transition: all $transition-base;
+    overflow: hidden;
+
+    // текст реагирует на hover (плавно сдвигается)
+    span {
+        display: inline-block;
+        transition: transform $transition-base;
+    }
+
+    // иконка
+    &::after {
+        content: '';
+        position: absolute;
+        right: 45px;
+        top: 50%;
+        transform: translateY(-50%) translateX(8px); // немного за пределами
+        width: 20px;
+        height: 20px;
+        background: url('../../assets/icons/coffee-cup.svg') no-repeat center / contain;
+        opacity: 0;
+        transition: opacity $transition-base, transform $transition-base;
+    }
+
+    // hover: появляется иконка и сдвигается текст
+    &:hover {
+        span {
+            transform: translateX(-15px);
+        }
+
+        &::after {
+            opacity: 1;
+            transform: translateY(-53%) translateX(0);
+        }
+    }
+}

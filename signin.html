@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="signInTitle">Sign In | Coffee House</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/logo.png" />
+    <link rel="stylesheet" href="css/style.min.css" />
+  </head>
+
+  <body>
+    <header class="header container">
+      <div class="header__container">
+        <a href="index.html" class="header__logo">
+          <img src="assets/images/logo.png" alt="Coffee House logo" />
+        </a>
+
+        <!-- Language Switcher -->
+        <div class="lang-switcher">
+          <button data-lang="en" class="lang-btn">EN</button>
+          <button data-lang="pl" class="lang-btn">PL</button>
+          <button data-lang="ru" class="lang-btn">RU</button>
+        </div>
+
+        <nav class="nav header__nav">
+          <ul class="nav__list">
+            <li><a href="index.html#enjoy" class="menu-item" data-i18n="home">Home</a></li>
+            <li><a href="index.html#about" class="menu-item" data-i18n="about">About</a></li>
+            <li><a href="index.html#app" class="menu-item" data-i18n="mobileApp">Mobile App</a></li>
+            <li><a href="index.html#footer" class="menu-item" data-i18n="contactUs">Contact Us</a></li>
+          </ul>
+        </nav>
+
+        <a href="cart.html" class="menu-item cart-link" aria-label="Cart" style="display: none">
+          <img src="assets/icons/cart.svg" alt="Cart icon" class="cart-link__icon" />
+          <span class="cart-link__counter"></span>
+        </a>
+
+        <a href="menu.html" class="menu-item" data-i18n="menu">Menu</a>
+
+        <button class="button-icon-burger" id="burgerIcon"></button>
+      </div>
+    </header>
+
+    <main class="register container">
+      <h1 class="favorites__title" data-i18n="signInTitle">Sign In</h1>
+
+      <form id="loginForm" class="login__form form-group">
+        <label for="login" data-i18n="loginLabel">Login</label>
+        <input id="login" type="text" placeholder="Enter login" data-i18n-placeholder="loginPlaceholder" required />
+
+        <label for="password" data-i18n="passwordLabel">Password</label>
+        <input id="password" type="password" placeholder="Enter password" data-i18n-placeholder="passwordPlaceholder" required />
+
+        <button
+          class="button-outline button-icon-dark button-icon-dark--cart"
+          id="signInBtn"
+          type="submit"
+          data-i18n="signInButton"
+          disabled
+        >
+          Sign In
+        </button>
+
+        <p id="loginError" class="login-error" data-i18n="signInError"></p>
+      </form>
+    </main>
+
+    <footer class="footer" id="footer">
+      <div class="footer__container container">
+        <div class="footer__left">
+          <h2 class="footer__title" data-i18n="footerTitle">Sip, Savor, Smile.</h2>
+          <p class="footer__subtitle" data-i18n="footerSubtitle">It’s coffee time!</p>
+
+          <div class="footer__socials">
+            <a href="#" class="button-icon-light" aria-label="Twitter">
+              <img src="assets/icons/twitter.svg" alt="Twitter" />
+            </a>
+            <a href="#" class="button-icon-light" aria-label="Instagram">
+              <img src="assets/icons/instagram.svg" alt="Instagram" />
+            </a>
+            <a href="#" class="button-icon-light" aria-label="Facebook">
+              <img src="assets/icons/facebook.svg" alt="Facebook" />
+            </a>
+          </div>
+        </div>
+
+        <div class="footer__right">
+          <h3 class="footer__contact-title" data-i18n="contactTitle">Contact us</h3>
+          <ul class="footer__contact-list">
+            <li>
+              <img src="assets/icons/pin.svg" alt="" />
+              <span data-i18n="address">8558 Green Rd., LA</span>
+            </li>
+            <li>
+              <img src="assets/icons/phone.svg" alt="" />
+              <span data-i18n="phone">+1 (603) 555-0123</span>
+            </li>
+            <li>
+              <img src="assets/icons/clock.svg" alt="" />
+              <span data-i18n="hours">Mon–Sat: 9:00 AM – 23:00 PM</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="js/i18n.js"></script>
+    <script type="module" src="js/signin.js"></script>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
